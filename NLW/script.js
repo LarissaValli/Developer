@@ -5,8 +5,8 @@ const askButtom = document.getElementById('askButton')
 const aiResponse = document.getElementById('aiResponse')
 const form = document.getElementById('form')
 
-const perguntarAI = async () ==> {
-    
+const perguntarAI = async (question, game, apiKey) ==> {
+
 }
 
 
