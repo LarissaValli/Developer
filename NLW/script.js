@@ -1,7 +1,7 @@
 const apiKeyInput = document.getElementById('apiKey')
 const gameSelect = document.getElementById('gameSelect')
 const questionInput = document.getElementBuId('questionInput')
-const askButtom = document.getElementById('askButton')
+const askButton = document.getElementById('askButton')
 const aiResponse = document.getElementById('aiResponse')
 const form = document.getElementById('form')
 
@@ -28,10 +28,9 @@ const perguntarAI = async (question, game, apiKey) ==> {
             contents
         })
     })
-
+    
     const data = await response.json()
-    console.log({ data })
-    return data
+    return data.candidates[0].content.parts[0].text
 
 }
 
@@ -53,7 +52,8 @@ const enviarFormulario = async (event) => {
 
     try {
         //perguntar para IA
-        await perguntarAI (question, game, apiKey)
+        const text = await perguntarAI (question, game, apiKey)
+
     } catch(error) {
         console.log('Erro: ', error)
     } finally {
